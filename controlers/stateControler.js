@@ -161,8 +161,8 @@ const PostFunfact = async (req, res) => {
 
     funfact = req.body.funfacts;
 
-    console.log(funfact);
-    console.log(stateCode);
+    //console.log(funfact);
+    //console.log(stateCode);
 
     if(!stateCode || !funfact) {
         return res.status(400).json({Message: "stateCode and funfact are requiered"});
@@ -170,7 +170,7 @@ const PostFunfact = async (req, res) => {
 
     const state = await states.findOne({ stateCode: stateCode }).exec();
 
-    console.log(state);
+    //console.log(state);
 
     if(state == null)
     {
@@ -188,7 +188,7 @@ const PostFunfact = async (req, res) => {
     //re-get state after state obj is created 
     const state2 = await states.findOne({ stateCode: stateCode }).exec();
 
-    console.log(state2);
+    //console.log(state2);
 
     try
     {
@@ -204,7 +204,7 @@ const PostFunfact = async (req, res) => {
     }        
 };
 
-//Put funfact
+//patch funfact
 const PatchFunfact =  async (req, res) => {
 
     stateCodei = req.params.code;

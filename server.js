@@ -19,6 +19,11 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 
+//Home page
+app.get("^/$|home.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "home.html"));
+});
+
 //API route
 app.use("/states", require("./routes/state.js"));
 
